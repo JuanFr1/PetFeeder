@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'package:flutter/material.dart';
 import 'agregarMascotas.dart';
+import 'pages/addcupon.dart';
 
 void main() {
   runApp(
@@ -22,32 +23,6 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Center(
             child: Column(children: [
-           GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context, 
-                              MaterialPageRoute(builder: (context) => CategoryListPage()),                              
-                            );
-                          },
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 4,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Image.network(
-                                  'https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-coupon-black-friday-justicon-lineal-color-justicon.png',
-                                  height: 128,
-                                ),
-                                Text(
-                                  'Cupones',
-                                  style: cardTextStyle,
-                                )
-                              ],
-                            ),
-                          ),
-                        ),   
           // Image.asset(
           //   'assets/images/cartoon-pets.png',
           //   height: 100.0,
@@ -68,6 +43,18 @@ class _HomePageState extends State<HomePage> {
             child:
                 Text('Agregar Mascotas', style: TextStyle(color: Colors.white)),
           ),
+          MaterialButton(
+            minWidth: 200.0,
+            height: 40.0,
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AddCuponPage()),
+              );
+            },
+            color: Colors.lightBlue,
+            child: Text('Agregar Cupon', style: TextStyle(color: Colors.white)),
+          )
         ])));
   }
 }

@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:PetFeeder/services/api_service.dart';
+// import 'package:petfeeder/services/api_service.dart';
 import 'package:flutter/material.dart';
-import 'package:PetFeeder/model/cupon.dart';
+import 'package:petfeeder/model/cupon.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
-import '../config.dart';
+
 
 class AddCuponPage extends StatefulWidget{
   const AddCuponPage({Key? key}) : super(key: key);
