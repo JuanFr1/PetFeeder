@@ -22,6 +22,32 @@ class _HomePageState extends State<HomePage> {
         ),
         body: Center(
             child: Column(children: [
+           GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context, 
+                              MaterialPageRoute(builder: (context) => CategoryListPage()),                              
+                            );
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  'https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-coupon-black-friday-justicon-lineal-color-justicon.png',
+                                  height: 128,
+                                ),
+                                Text(
+                                  'Cupones',
+                                  style: cardTextStyle,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),   
           // Image.asset(
           //   'assets/images/cartoon-pets.png',
           //   height: 100.0,
