@@ -1,9 +1,9 @@
 //Ventana que muestra cupones en lista
 //add edit
 
-import 'package:animalfav/pages/cuponDetail.dart';
+import 'package:PetFeeder/pages/cuponDetail.dart';
 import 'package:flutter/material.dart';
-import 'package:animalfav/model/cupon.dart';
+import 'package:PetFeeder/model/cupon.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 

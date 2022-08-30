@@ -1,8 +1,8 @@
 import 'dart:io';
 
-import 'package:animalfav/services/api_service.dart';
+import 'package:PetFeeder/services/api_service.dart';
 import 'package:flutter/material.dart';
-import 'package:animalfav/model/cupon.dart';
+import 'package:PetFeeder/model/cupon.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 

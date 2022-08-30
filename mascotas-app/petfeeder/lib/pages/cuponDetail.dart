@@ -1,6 +1,6 @@
 //Ventana donde muestra el detalle individual de cada cupon
 
-import 'package:animalfav/model/cupon.dart';
+import 'package:PetFeeder/model/cupon.dart';
 import 'package:flutter/material.dart';
 import 'package:scratcher/scratcher.dart';
 
