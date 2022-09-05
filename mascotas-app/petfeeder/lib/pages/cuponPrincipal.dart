@@ -1,26 +1,32 @@
 //Ventana que muestra cupones en lista
 //add edit
 
-import 'package:petfeeder/pages/cuponDetail.dart';
 import 'package:flutter/material.dart';
-import 'package:petfeeder/model/cupon.dart';
+
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
 // import '../services/api_service.dart';
-import 'addcupon.dart';
+import '../model/cupon.dart';
+import '../services/api_service.dart';
+import 'cuponDetail.dart';
+import 'dart:math';
+
+final _random = new Random();
+
+int next(int min, int max) => min + _random.nextInt(max - min);
 
 class CuponPage extends StatefulWidget {
   const CuponPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _CuponPageState createState() => _CuponPageState();
 }
 
 class _CuponPageState extends State<CuponPage> {
-  //List<Cupon> cupones = List<Cupon>.empty(growable: true);
-
   bool isApiCallProcess = false;
+  int cuponesactuales = 0;
 
   @override
   void initState() {
@@ -30,103 +36,30 @@ class _CuponPageState extends State<CuponPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: botonFlotante(),
-      appBar: barraSuperior(),
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
+        title: Text('PULSA EN CUALQUIER PARTE DE LA PANTALLA'),
+        backgroundColor: Colors.purple,
+      ),
       body: ModalProgressHUD(
-        child: loadCupon(),
         inAsyncCall: isApiCallProcess,
         opacity: 0.3,
         key: UniqueKey(),
+        child: loadCupon(),
       ),
-    );
-  }
-
-//widget que contiene cada card en la lista
-  Widget cardCupon(index, cupones) {
-    return Card(
-      elevation: 5,
-      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-      child: Container(
-        padding: EdgeInsets.all(8),
-        child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Container(width: 50, height: 50
-                  //aqui puede ir una imagen
-                  ),
-              Expanded(
-                  child: Container(
-                padding: EdgeInsets.only(bottom: 8),
-                child: Column(
-                  //columna de la info de cada cupon
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
-                      child: Text(
-                        cupones[index].cuponName.toString(),
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
-                      child: Text(cupones[index].local.toString()),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
-                      child: Text(cupones[index].beneficio.toString()),
-                    ),
-                  ],
-                ),
-              )),
-            ]),
-      ),
-    );
-  }
-
-//boton flotante
-  Widget botonFlotante() {
-    return SpeedDial(
-      animatedIcon: AnimatedIcons.menu_close,
-      backgroundColor: Colors.white, //color del boton
-      overlayColor: Colors.black, //color cuando doy click
-      overlayOpacity: 0.4,
-      children: [
-        SpeedDialChild(
-          child: Icon(Icons.add),
-          backgroundColor: Colors.amber,
-          label: 'Añadir Cupón',
-          onTap: () => {
-            //pagina de añadir cupon
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => AddCuponPage()))
-          },
-        ),
-      ],
-    );
-  }
-
-//barra superior que se muestra
-  PreferredSizeWidget barraSuperior() {
-    return AppBar(
-      leading: BackButton(),
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
-      backgroundColor: Colors.transparent,
-      elevation: 0,
     );
   }
 
   Widget loadCupon() {
+    print(APIService.getCupones());
     return FutureBuilder(
         future: APIService.getCupones(),
         builder: (
           BuildContext context,
           AsyncSnapshot<List<Cupon>?> cupon,
         ) {
+          cuponesactuales = cupon.data!.length;
           if (cupon.hasData) {
             return cuponList(cupon.data);
           }
@@ -145,10 +78,10 @@ class _CuponPageState extends State<CuponPage> {
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => cuponDetail(
-                        cupon: cupones[index],
+                        cupon: cupones[next(0, cuponesactuales)],
                       )));
             },
-            child: cardCupon(index, cupones),
+            // child: cardCupon(index, cupones),
           );
         });
   }
