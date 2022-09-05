@@ -1,7 +1,7 @@
 //ventana que muestra las categorias
 //list
 
-import 'cupon.dart';
+import 'package:pages/addcupon.dart';
 import 'package:flutter/material.dart';
 
 import 'util.dart';
