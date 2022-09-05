@@ -1,8 +1,9 @@
 //Ventana donde muestra el detalle individual de cada cupon
 
-import 'package:petfeeder/model/cupon.dart';
 import 'package:flutter/material.dart';
 import 'package:scratcher/scratcher.dart';
+
+import '../model/cupon.dart';
 
 class cuponDetail extends StatelessWidget {
   final Cupon? cupon;
@@ -16,11 +17,10 @@ class cuponDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        title: Text('AQUÍ ESTÁ SU CUPON!!'),
+        backgroundColor: Colors.purple,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -32,11 +32,11 @@ class cuponDetail extends StatelessWidget {
           Text('Válido hasta: ' + cupon!.cuponFecha!),
           Scratcher(
               brushSize: 70,
-              color: Colors.blueGrey,
+              color: Color.fromARGB(255, 0, 0, 0),
               child: Container(
                 width: 200,
                 height: 200,
-                color: Colors.amber,
+                color: Color.fromARGB(255, 181, 83, 194),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -47,7 +47,7 @@ class cuponDetail extends StatelessWidget {
                           foreground: Paint()
                             ..style = PaintingStyle.stroke
                             ..strokeWidth = 3
-                            ..color = Colors.black),
+                            ..color = Color.fromARGB(255, 255, 255, 255)),
                     ),
                   ],
                 ),
