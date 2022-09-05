@@ -89,7 +89,7 @@ class _listaMascotasPageState extends State<listaMascotasPage> {
                   );
                 },
                 backgroundColor: Colors.blue,
-                child: const Icon(Icons.plus_one))
+                child: const Icon(Icons.add))
           ]),
         ));
   }
