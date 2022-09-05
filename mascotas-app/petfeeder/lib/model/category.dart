@@ -1,7 +1,7 @@
 //ventana que muestra las categorias
 //list
 
-import 'package:petfeeder/pages/cuponPrincipal.dart';
+import 'cupon.dart';
 import 'package:flutter/material.dart';
 
 import 'util.dart';
