@@ -6,7 +6,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:snippet_coder_utils/FormHelper.dart';
 
 import '../config.dart';
-import '../services/api_service.dart';
+import '../servicios/api_service.dart';
 
 class AddCuponPage extends StatefulWidget {
   const AddCuponPage({Key? key}) : super(key: key);
@@ -29,7 +29,7 @@ class _AddCuponPage extends State<AddCuponPage> {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
         title: Text('AÑADA SU CUPON'),
-        backgroundColor: Colors.purple,
+        backgroundColor: Color.fromARGB(255, 206, 70, 81),
       ),
       backgroundColor: Colors.grey[200],
       body: ModalProgressHUD(
@@ -70,7 +70,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponName",
               "Nombre del Cupon",
               (onValidate) {
@@ -95,7 +95,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponLocal",
               "Establecimiento donde se aplicará el cupon",
               (onValidate) {
@@ -121,7 +121,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponFecha",
               "Fecha de Expiración",
               (onValidate) {
@@ -147,7 +147,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponBeneficio",
               "Descripción",
               (onValidate) {
@@ -173,7 +173,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponCodigo",
               "Código",
               (onValidate) {
@@ -198,7 +198,7 @@ class _AddCuponPage extends State<AddCuponPage> {
             padding: const EdgeInsets.only(bottom: 10, top: 10),
             child: FormHelper.inputFieldWidget(
               context,
-              const Icon(Icons.ac_unit),
+              // const Icon(Icons.ac_unit),
               "cuponCategoria",
               "Categoría",
               (onValidate) {
@@ -253,7 +253,7 @@ class _AddCuponPage extends State<AddCuponPage> {
           });
         }
       },
-      btnColor: Color.fromARGB(255, 170, 47, 129),
+      btnColor: Color.fromARGB(255, 206, 70, 81),
       borderColor: Colors.transparent,
       txtColor: Color.fromARGB(255, 255, 255, 255),
     );

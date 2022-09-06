@@ -27,32 +27,22 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
-<<<<<<< HEAD
-=======
   
-  scratcher: "^2.2.1"
+  scratcher: ^2.2.1
   flutter_speed_dial: ^6.0.0
->>>>>>> d3e8592945b4ded18cc03aad34e284687fa101c9
   flutter:
     sdk: flutter
-  http: ^0.13.4
-  scratcher: ^2.1.0
   flutter_svg: ^1.0.3
-  flutter_speed_dial: ^5.0.0+1
   fluttertoast: ^8.0.8
   flutter_progress_hud: ^2.0.0
-  modal_progress_hud_nsn: ^0.1.0-nullsafety-1
-  snippet_coder_utils: ^1.0.9
   cupertino_icons: ^1.0.2
-<<<<<<< HEAD
   googleapis: ^7.0.0
   google_maps_flutter: ^2.1.1
   g_simple_calendar: ^0.0.3+2
-=======
   http: any
   modal_progress_hud_nsn: ^0.3.0
   snippet_coder_utils: ^1.0.12
->>>>>>> d3e8592945b4ded18cc03aad34e284687fa101c9
+  flutter_icons_nullsafty: ^1.0.0
 
 dev_dependencies:
   flutter_test:

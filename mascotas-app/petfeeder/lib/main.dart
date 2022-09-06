@@ -1,77 +1,168 @@
-import 'dart:html';
-import 'package:flutter/material.dart';
-import 'agregarMascotas.dart';
+//Ventana principal de la app
 
-import 'pages/addcupon.dart';
+//recursos
+
+import 'package:animalfav/pages/addcupon.dart';
+import 'package:flutter/material.dart';
+
+//ventanas
 import 'pages/cuponPrincipal.dart';
 
 void main() {
-  runApp(
-    MaterialApp(home: HomePage()),
-  );
+  runApp(MyApp());
 }
 
-class HomePage extends StatefulWidget {
+class MyApp extends StatelessWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "PetFeeder",
+      home: HomeScreen(),
+    );
+  }
 }
 
-class _HomePageState extends State<HomePage> {
+// ************ Home Screen **************
+class HomeScreen extends StatefulWidget {
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
   Widget build(BuildContext context) {
+    //obtener el tamaño de la ventana
+    var size = MediaQuery.of(context).size;
+
+    //estilo
+    var cardTextStyle = TextStyle(
+        fontFamily: "Montserrat Regular",
+        fontSize: 14,
+        color: Color.fromARGB(255, 0, 0, 0));
+
     return Scaffold(
-        appBar: AppBar(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
-          title: Text('PETFEEDER'),
-          backgroundColor: Colors.purple,
-        ),
-        body: Center(
-            child: Column(children: [
-          Image.asset(
-            'assets/images/cartoon-pets.png',
-            height: 100.0,
+      appBar: AppBar(
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
+        title: Text('PetFeeder'),
+        backgroundColor: Color.fromARGB(255, 206, 70, 81),
+      ),
+      body: Stack(
+        children: <Widget>[
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                children: <Widget>[
+                  Expanded(
+                    child: GridView.count(
+                      mainAxisSpacing: 10,
+                      crossAxisSpacing: 10,
+                      primary: false,
+                      crossAxisCount: 2,
+                      children: <Widget>[
+                        //Botón que manda a Cupones
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CuponPage()),
+                            );
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  'https://cdn-icons-png.flaticon.com/512/3460/3460335.png',
+                                  height: 128,
+                                ),
+                                Text(
+                                  'AgregarMascotas',
+                                  style: cardTextStyle,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CuponPage()),
+                            );
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  'https://cdn-icons-png.flaticon.com/512/5470/5470197.png',
+                                  height: 128,
+                                ),
+                                Text(
+                                  'Obtener Cupón',
+                                  style: cardTextStyle,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+
+                        //Botón que manda a Correos
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+
+                              //reemplazar CuponPage() por la ventana de correos
+
+                              MaterialPageRoute(
+                                  builder: (context) => AddCuponPage()),
+                            );
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  // url de imagen de internet
+
+                                  'https://cdn-icons-png.flaticon.com/512/3703/3703714.png',
+                                  height: 128,
+                                ),
+                                Text(
+                                  'Añadir Cupoón',
+                                  style: cardTextStyle,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
-          SizedBox(
-            height: 15.0,
-          ),
-          MaterialButton(
-            minWidth: 200.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => agregarMascotasPage()),
-              );
-            },
-            color: Colors.lightBlue,
-            child:
-                Text('Agregar Mascotas', style: TextStyle(color: Colors.white)),
-          ),
-          MaterialButton(
-            minWidth: 200.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CuponPage()),
-              );
-            },
-            color: Colors.lightBlue,
-            child:
-                Text('Obtenga un Cupon', style: TextStyle(color: Colors.white)),
-          ),
-          MaterialButton(
-            minWidth: 200.0,
-            height: 40.0,
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => AddCuponPage()),
-              );
-            },
-            color: Colors.lightBlue,
-            child: Text('Agregar Cupon', style: TextStyle(color: Colors.white)),
-          )
-        ])));
+        ],
+      ),
+    );
   }
 }

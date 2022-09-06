@@ -1,0 +1,64 @@
+[{
+  "_id": {
+    "$oid": "6316748a8786e7c187324c51"
+  },
+  "cuponName": "Cupon Patitas",
+  "cuponLocal": "City Mall",
+  "cuponFecha": "01-01-2023",
+  "cuponBeneficio": "Cupon 80% para limpieza de patitas",
+  "cuponCodigo": "GUAUMIAU8",
+  "cuponCategoria": "Perro/Gato",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1662416010306"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1662416010306"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6316758a8786e7c187324c59"
+  },
+  "cuponName": "Cupon pio-pio",
+  "cuponLocal": "MAL DEL SUR",
+  "cuponFecha": "02-02-2023",
+  "cuponBeneficio": "Cupon 3x1 fundas de comida pio-pio",
+  "cuponCodigo": "PIOPIO2012",
+  "cuponCategoria": "Pajaros",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1662416266076"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1662416266076"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6316c6e1f5eb5f52c2700790"
+  },
+  "cuponName": "Cupon casa de perrito",
+  "cuponLocal": "City Mall",
+  "cuponFecha": "01-01-2024",
+  "cuponBeneficio": "Casa de perrito al 50%",
+  "cuponCodigo": "HOME5GUAU",
+  "cuponCategoria": "Perros",
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1662437089957"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1662437089957"
+    }
+  },
+  "__v": 0
+}]

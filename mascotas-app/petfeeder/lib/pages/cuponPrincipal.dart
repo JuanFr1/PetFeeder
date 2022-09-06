@@ -11,7 +11,7 @@ import '../model/cupon.dart';
 
 import 'cuponDetail.dart';
 import 'dart:math';
-import '../services/api_service.dart';
+import '../servicios/api_service.dart';
 
 final _random = new Random();
 
@@ -40,8 +40,8 @@ class _CuponPageState extends State<CuponPage> {
       appBar: AppBar(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
-        title: Text('PULSA EN CUALQUIER PARTE DE LA PANTALLA'),
-        backgroundColor: Colors.purple,
+        title: Text('PULSE LA PANTALLA'),
+        backgroundColor: Color.fromARGB(255, 206, 70, 81),
       ),
       body: ModalProgressHUD(
         inAsyncCall: isApiCallProcess,
@@ -53,7 +53,6 @@ class _CuponPageState extends State<CuponPage> {
   }
 
   Widget loadCupon() {
-    print(APIService.getCupones());
     return FutureBuilder(
         future: APIService.getCupones(),
         builder: (
