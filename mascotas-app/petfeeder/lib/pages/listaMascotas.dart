@@ -89,18 +89,12 @@ Widget petList(List<Mascota> mascotas) {
                   MaterialPageRoute(
                       builder: (_) => ModificarMascota(mascotas[index])))
               .then((newMascota) {
-            if (newMascota != null) {
-              mascotas.removeAt(index);
-
-              mascotas.insert(index, newMascota);
-
-              messageResponse(
-                  context, newMascota.petName + " Ha sido modificado...!");
-            }
+            messageResponse(
+                context, newMascota.petName + " Ha sido modificado...!");
           });
         },
         onLongPress: () {
-          eliminarMascota(context, mascotas[index]);
+          removeMascota(context, mascotas[index]);
         },
         title: Text(mascotas[index].petName),
         subtitle: Text(mascotas[index].petAge),
@@ -112,7 +106,7 @@ Widget petList(List<Mascota> mascotas) {
   );
 }
 
-eliminarMascota(BuildContext context, Mascota mascota) {
+removeMascota(BuildContext context, Mascota mascota) {
   showDialog(
       context: context,
       builder: (_) => AlertDialog(
@@ -121,7 +115,9 @@ eliminarMascota(BuildContext context, Mascota mascota) {
             actions: [
               TextButton(
                 onPressed: () {
-                  Navigator.pop(context);
+                  eliminarMascota(mascota.id).then((value) => {
+                        if (value.id != '') {Navigator.pop(context)}
+                      });
                 },
                 child: Text(
                   "Eliminar",

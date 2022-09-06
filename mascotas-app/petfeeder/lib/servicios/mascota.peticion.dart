@@ -63,3 +63,29 @@ Future<Mascota> agregarMascota(Mascota mascota) async {
     throw Exception('Error al intentar agregar la mascota');
   }
 }
+
+Future<Mascota> modificarMascota(Mascota mascota) async {
+  var url = Uri.parse('http://192.168.100.19:4000/api/mascotas/update');
+  var _body = json.encode(mapPet(mascota, true));
+
+  var response = await http.put(url,
+      headers: {'Content-Type': 'application/json; charset=utf-8'},
+      body: _body);
+
+  if (response.statusCode == 200) {
+    return Mascota.fromJson(jsonDecode(response.body)['mascota']);
+  } else {
+    throw Exception('Error al intentar modificar la mascota');
+  }
+}
+
+Future<Mascota> eliminarMascota(String mascotaId) async {
+  final response = await http.delete(
+      Uri.parse('http://192.168.100.19:4000/api/mascotas/delete/$mascotaId'),
+      headers: {'Content-Type': 'application/json; charset=utf-8'});
+  if (response.statusCode == 200) {
+    return Mascota.fromJson(jsonDecode(response.body)['mascota']);
+  } else {
+    throw Exception('Error al intentar eliminar la mascota');
+  }
+}

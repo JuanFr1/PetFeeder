@@ -1,3 +1,4 @@
+import '../servicios/mascota.peticion.dart';
 import 'listaMascotas.dart';
 import '../model/mascota.model.dart';
 import 'package:flutter/material.dart';
@@ -59,18 +60,20 @@ class _modificarMascota extends State<ModificarMascota> {
                 String avatar = controllerAvatar.text;
 
                 if (name.isNotEmpty && age.isNotEmpty && weight.isNotEmpty) {
-                  Navigator.pop(
-                      context,
-                      new Mascota(
-                          petName: name,
-                          petAge: age,
-                          petWeight: weight,
-                          raze: raze,
-                          color: color,
-                          avatar: avatar));
+                  Mascota m = new Mascota(
+                      petName: name,
+                      petAge: age,
+                      petWeight: weight,
+                      raze: raze,
+                      color: color,
+                      avatar: avatar);
+
+                  modificarMascota(m).then((value) => {
+                        if (value.id != '') {Navigator.pop(context, value)}
+                      });
                 }
               },
-              child: Text("Guardar Mascota")),
+              child: Text("Actualizar Mascota")),
         ],
       ),
     );
