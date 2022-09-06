@@ -11,7 +11,8 @@ Debe dejarse correr el backend antes de compilar la aplicacion abriendo una cmd 
 
 node src/index.js
 
-Agregar Cupones
+Agregar y visualizar Cupones
+La aplicacion permite el registro, visualizacion al azar de cupones.
 
-
-Agregar Eventos
+para levantar el servidor en la carpeta petfeeder/mascotas-app/backend/apicupon correr el siguiente comando 
+"npm start". 

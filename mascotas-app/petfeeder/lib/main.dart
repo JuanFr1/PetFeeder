@@ -2,10 +2,13 @@
 
 //recursos
 
-import 'package:animalfav/pages/addcupon.dart';
+import 'pages/listaMascotas.dart';
 import 'package:flutter/material.dart';
 
 //ventanas
+
+import 'pages/agregarMascotas.dart';
+import 'pages/addcupon.dart';
 import 'pages/cuponPrincipal.dart';
 
 void main() {
@@ -69,7 +72,34 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => CuponPage()),
+                                  builder: (context) => agregarMascotasPage()),
+                            );
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Image.network(
+                                  'https://cdn-icons-png.flaticon.com/512/5267/5267453.png',
+                                  height: 128,
+                                ),
+                                Text(
+                                  'AgregarMascotas',
+                                  style: cardTextStyle,
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => listaMascotasPage()),
                             );
                           },
                           child: Card(
@@ -84,14 +114,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                   height: 128,
                                 ),
                                 Text(
-                                  'AgregarMascotas',
+                                  'Lista Mascotas',
                                   style: cardTextStyle,
                                 )
                               ],
                             ),
                           ),
                         ),
-
                         GestureDetector(
                           onTap: () {
                             Navigator.push(

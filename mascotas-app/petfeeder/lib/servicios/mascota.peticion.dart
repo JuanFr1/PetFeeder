@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:petfeeder/model/mascota.model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+
+import '../model/mascota.model.dart';
 
 Future<List<Mascota>> listaMascotas() async {
   final response =

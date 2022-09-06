@@ -35,7 +35,10 @@ class _agregarMascotasPageState extends State<agregarMascotasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Agregar Mascotas"),
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
+          title: Text('Agregar Mascotas'),
+          backgroundColor: Color.fromARGB(255, 206, 70, 81),
         ),
         body: ListView(
           children: [

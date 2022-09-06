@@ -20,8 +20,10 @@ class _listaMascotasPageState extends State<listaMascotasPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Lista de Mascotas"),
-          backgroundColor: Colors.purple,
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(16))),
+          title: Text('Lista Mascotas'),
+          backgroundColor: Color.fromARGB(255, 206, 70, 81),
         ),
         body: Center(
           child: Column(children: [
@@ -42,7 +44,7 @@ class _listaMascotasPageState extends State<listaMascotasPage> {
                       });
                     },
                     tooltip: "Agregar Mascota",
-                    backgroundColor: Colors.blue,
+                    backgroundColor: Color.fromARGB(255, 206, 70, 81),
                     child: const Icon(Icons.add)))
           ]),
         ));
@@ -130,7 +132,7 @@ removeMascota(BuildContext context, Mascota mascota) {
                 },
                 child: Text(
                   "Cancelar",
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(color: Color.fromARGB(255, 208, 216, 98)),
                 ),
               )
             ],
