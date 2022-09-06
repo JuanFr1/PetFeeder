@@ -1,7 +1,7 @@
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'agregarMascotas.dart';
-
+import 'pages/agregarMascotas.dart';
+import 'pages/listaMascotas.dart';
 import 'pages/addcupon.dart';
 import 'pages/cuponPrincipal.dart';
 
@@ -40,12 +40,11 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => agregarMascotasPage()),
+                MaterialPageRoute(builder: (context) => listaMascotasPage()),
               );
             },
             color: Colors.lightBlue,
-            child:
-                Text('Agregar Mascotas', style: TextStyle(color: Colors.white)),
+            child: Text('Mascotas', style: TextStyle(color: Colors.white)),
           ),
           MaterialButton(
             minWidth: 200.0,
