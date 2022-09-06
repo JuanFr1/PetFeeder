@@ -81,6 +81,7 @@ Widget getPets(BuildContext context, Future<List<Mascota>> futurePet) {
 
 Widget petList(List<Mascota> mascotas) {
   return ListView.builder(
+    shrinkWrap: true,
     itemCount: mascotas.length,
     itemBuilder: (context, index) {
       return ListTile(
@@ -104,9 +105,7 @@ Widget petList(List<Mascota> mascotas) {
           eliminarMascota(context, mascotas[index]);
         },
         title: Text(mascotas[index].petName),
-        subtitle: Text(mascotas[index].petAge +
-            mascotas[index].petWeight +
-            mascotas[index].color),
+        subtitle: Text(mascotas[index].petAge),
         leading: CircleAvatar(
           child: Text(mascotas[index].petName.substring(0, 1)),
         ),
