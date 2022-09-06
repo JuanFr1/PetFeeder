@@ -4,6 +4,8 @@ import '../model/mascota.model.dart';
 import 'dart:async';
 import 'dart:convert';
 
+import '../servicios/mascota.peticion.dart';
+
 class agregarMascotasPage extends StatefulWidget {
   static String id = 'listaMascotas';
   @override
@@ -59,15 +61,17 @@ class _agregarMascotasPageState extends State<agregarMascotasPage> {
                   String avatar = controllerAvatar.text;
 
                   if (name.isNotEmpty && age.isNotEmpty && weight.isNotEmpty) {
-                    Navigator.pop(
-                        context,
-                        new Mascota(
-                            petName: name,
-                            petAge: age,
-                            petWeight: weight,
-                            raze: raze,
-                            color: color,
-                            avatar: avatar));
+                    Mascota m = new Mascota(
+                        petName: name,
+                        petAge: age,
+                        petWeight: weight,
+                        raze: raze,
+                        color: color,
+                        avatar: avatar);
+
+                    agregarMascota(m).then((value) => {
+                          if (value.id != '') {Navigator.pop(context, value)}
+                        });
                   }
                 },
                 child: Text("Guardar Mascota")),

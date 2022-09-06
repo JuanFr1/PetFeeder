@@ -18,12 +18,12 @@ class Mascota {
 
   factory Mascota.fromJson(Map<String, dynamic> json) {
     return Mascota(
-        id: json['_id'],
-        petName: json['petName'],
-        petAge: json['PetAge'],
-        petWeight: json['petWeight'],
-        raze: json['raze'],
-        color: json['color'],
-        avatar: json['avatar']);
+        id: json['_id'] as String? ?? "",
+        petName: json['petName'] as String? ?? "",
+        petAge: json['petAge'] as String? ?? "",
+        petWeight: json['petWeight'] as String? ?? "",
+        raze: json['raze'] as String? ?? "",
+        color: json['color'] as String? ?? "",
+        avatar: json['avatar'] as String? ?? "");
   }
 }

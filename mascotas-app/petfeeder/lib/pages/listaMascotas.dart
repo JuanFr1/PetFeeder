@@ -35,12 +35,10 @@ class _listaMascotasPageState extends State<listaMascotasPage> {
                               MaterialPageRoute(
                                   builder: (_) => agregarMascotasPage()))
                           .then((newMascota) {
-                        if (newMascota != null) {
-                          setState(() {
-                            messageResponse(context,
-                                newMascota.petName + "ha sido agregada");
-                          });
-                        }
+                        setState(() {
+                          messageResponse(context,
+                              newMascota.petName + " ha sido agregada");
+                        });
                       });
                     },
                     tooltip: "Agregar Mascota",
