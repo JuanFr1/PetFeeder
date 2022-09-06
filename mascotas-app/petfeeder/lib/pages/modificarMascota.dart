@@ -17,10 +17,12 @@ class _modificarMascota extends State<ModificarMascota> {
   late TextEditingController controllerRaze;
   late TextEditingController controllerColor;
   late TextEditingController controllerAvatar;
+  String id;
 
   @override
   void initState() {
     Mascota m = widget._pet;
+    id = m.id;
     controllerName = new TextEditingController(text: m.petName);
     controllerAge = new TextEditingController(text: m.petAge);
     controllerWeight = new TextEditingController(text: m.petWeight);
@@ -61,6 +63,7 @@ class _modificarMascota extends State<ModificarMascota> {
 
                 if (name.isNotEmpty && age.isNotEmpty && weight.isNotEmpty) {
                   Mascota m = new Mascota(
+                      id: id,
                       petName: name,
                       petAge: age,
                       petWeight: weight,
@@ -68,7 +71,7 @@ class _modificarMascota extends State<ModificarMascota> {
                       color: color,
                       avatar: avatar);
 
-                  modificarMascota(m).then((value) => {
+                  updateMascota(m).then((value) => {
                         if (value.id != '') {Navigator.pop(context, value)}
                       });
                 }

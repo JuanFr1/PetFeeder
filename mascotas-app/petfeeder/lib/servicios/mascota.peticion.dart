@@ -64,7 +64,7 @@ Future<Mascota> agregarMascota(Mascota mascota) async {
   }
 }
 
-Future<Mascota> modificarMascota(Mascota mascota) async {
+Future<Mascota> updateMascota(Mascota mascota) async {
   var url = Uri.parse('http://192.168.100.19:4000/api/mascotas/update');
   var _body = json.encode(mapPet(mascota, true));
 
