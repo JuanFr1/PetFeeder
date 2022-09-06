@@ -17,7 +17,7 @@ class _modificarMascota extends State<ModificarMascota> {
   late TextEditingController controllerRaze;
   late TextEditingController controllerColor;
   late TextEditingController controllerAvatar;
-  String id;
+  late String id;
 
   @override
   void initState() {
